@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,6 +51,32 @@ class MainActivity : ComponentActivity() {
                             onValueChange = {},
                             label = "体重(kg)",
                             placeHolder = "65",
+                        )
+                        Spacer(modifier = Modifier.height(30.dp))
+
+                        // 計算する
+                        Button(
+                            onClick = { /*TODO*/ },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF85F6A))
+                        ) {
+                            Text(
+                                text = "計算する",
+                                color = Color.White,
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold,
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(30.dp))
+
+                        // 結果表示用テキスト
+                        Text(
+                            text = "あなたのBMIは00.0です",
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center,
+                            color = Color.Gray,
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.ExtraBold,
                         )
                     }
                 }
