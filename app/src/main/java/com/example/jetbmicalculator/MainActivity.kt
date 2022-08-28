@@ -36,23 +36,49 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(30.dp))
 
                         // 身長
-                        Text(
-                            text = "身長(cm)",
-                            color = Color(0xFFF85F6A),
-                            fontWeight = FontWeight.Bold,
-                        )
-                        TextField(
-                            modifier = Modifier.fillMaxWidth(),
+                        PinkLabeledTextField(
                             value = "",
                             onValueChange = {},
-                            placeholder = { Text(text = "170") },
-                            colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent),
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                            singleLine = true,
+                            label = "身長(cm)",
+                            placeHolder = "170",
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        // 体重
+                        PinkLabeledTextField(
+                            value = "",
+                            onValueChange = {},
+                            label = "体重(kg)",
+                            placeHolder = "65",
                         )
                     }
                 }
             }
         }
+    }
+}
+
+@Composable
+fun PinkLabeledTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    placeHolder: String,
+) {
+    Column {
+        Text(
+            text = label,
+            color = Color(0xFFF85F6A),
+            fontWeight = FontWeight.Bold,
+        )
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = value,
+            onValueChange = onValueChange,
+            placeholder = { Text(text = placeHolder) },
+            colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            singleLine = true,
+        )
     }
 }
