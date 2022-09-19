@@ -39,25 +39,51 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(30.dp))
 
                         // 身長
-                        Text(
-                            text = "身長(cm)",
-                            color = Color(0xFFF85F6A),
-                            fontWeight = FontWeight.Bold,
-                        )
-                        TextField(
-                            modifier = Modifier.fillMaxWidth(),
+                        PinkLabeledTextField(
                             value = "",
                             onValueChange = {},
-                            colors = TextFieldDefaults.textFieldColors(
-                                backgroundColor = Color.Transparent
-                            ),
-                            placeholder = { Text(text = "170") },
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                            singleLine = true,
+                            label = "身長(cm)",
+                            placeholder = "170",
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        // 体重
+                        PinkLabeledTextField(
+                            value = "",
+                            onValueChange = {},
+                            label = "体重(kg)",
+                            placeholder = "65",
                         )
                     }
                 }
             }
         }
+    }
+}
+
+@Composable
+fun PinkLabeledTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    placeholder: String,
+) {
+    Column {
+        Text(
+            text = label,
+            color = Color(0xFFF85F6A),
+            fontWeight = FontWeight.Bold,
+        )
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = value,
+            onValueChange = onValueChange,
+            colors = TextFieldDefaults.textFieldColors(
+                backgroundColor = Color.Transparent
+            ),
+            placeholder = { Text(text = placeholder) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            singleLine = true,
+        )
     }
 }
