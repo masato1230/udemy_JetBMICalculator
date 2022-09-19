@@ -36,6 +36,25 @@ class MainActivity : ComponentActivity() {
                             fontSize = 26.sp,
                             fontWeight = FontWeight.ExtraBold,
                         )
+                        Spacer(modifier = Modifier.height(30.dp))
+
+                        // 身長
+                        Text(
+                            text = "身長(cm)",
+                            color = Color(0xFFF85F6A),
+                            fontWeight = FontWeight.Bold,
+                        )
+                        TextField(
+                            modifier = Modifier.fillMaxWidth(),
+                            value = "",
+                            onValueChange = {},
+                            colors = TextFieldDefaults.textFieldColors(
+                                backgroundColor = Color.Transparent
+                            ),
+                            placeholder = { Text(text = "170") },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            singleLine = true,
+                        )
                     }
                 }
             }
