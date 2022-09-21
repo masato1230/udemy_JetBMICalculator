@@ -45,8 +45,8 @@ class MainActivity : ComponentActivity() {
 
                         // 身長
                         PinkLabeledTextField(
-                            value = "",
-                            onValueChange = {},
+                            value = viewModel.height,
+                            onValueChange = { viewModel.height = it },
                             label = "身長(cm)",
                             placeholder = "170",
                         )
@@ -54,8 +54,8 @@ class MainActivity : ComponentActivity() {
 
                         // 体重
                         PinkLabeledTextField(
-                            value = "",
-                            onValueChange = {},
+                            value = viewModel.weight,
+                            onValueChange = { viewModel.weight = it },
                             label = "体重(kg)",
                             placeholder = "65",
                         )
